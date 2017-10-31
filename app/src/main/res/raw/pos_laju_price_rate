@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DOcument -->
+    <Price>
+        <city>yes</city>
+        <pricerate_type>starting</pricerate_type>
+        <weight>0.5</weight>
+        <pricerate>4.9</pricerate>
+        <item>document</item>
+    </Price>
+    <Price>
+        <city>yes</city>
+        <pricerate_type>subsequent</pricerate_type>
+        <weight>0.25</weight>
+        <pricerate>0.8</pricerate>
+        <item>document</item>
+    </Price>
+    <Price>
+        <city>no</city>
+        <pricerate_type>starting</pricerate_type>
+        <weight>0.5</weight>
+        <pricerate>5.4</pricerate>
+        <item>document</item>
+    </Price>
+    <Price>
+        <city>no</city>
+        <pricerate_type>subsequent</pricerate_type>
+        <weight>0.8</weight>
+        <pricerate>1</pricerate>
+        <item>document</item>
+    </Price>
+
+    <!-- Parcel -->
+    <Price>
+        <city>yes</city>
+        <pricerate_type>starting</pricerate_type>
+        <weight>2</weight>
+        <pricerate>10.5</pricerate>
+        <item>parcel</item>
+    </Price>
+    <Price>
+        <city>yes</city>
+        <pricerate_type>subsequent</pricerate_type>
+        <weight>0.5</weight>
+        <pricerate>0.5</pricerate>
+        <item>parcel</item>
+    </Price>
+    <Price>
+        <city>no</city>
+        <pricerate_type>starting</pricerate_type>
+        <weight>0.5</weight>
+        <pricerate>16</pricerate>
+        <item>parcel</item>
+    </Price>
+    <Price>
+        <city>no</city>
+        <pricerate_type>subsequent</pricerate_type>
+        <weight>0.8</weight>
+        <pricerate>2</pricerate>
+        <item>parcel</item>
+    </Price>
+</resources>

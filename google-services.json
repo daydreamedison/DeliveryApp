@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "679447498372",
+    "firebase_url": "https://parcel2go-fc1bc.firebaseio.com",
+    "project_id": "parcel2go-fc1bc",
+    "storage_bucket": "parcel2go-fc1bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679447498372:android:2fe7b4fe85172112",
+        "android_client_info": {
+          "package_name": "com.wondermelonpapajoanne.joanne.parcel2go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679447498372-7hs60t7pl334e98a606l0q9sqt52449r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wondermelonpapajoanne.joanne.parcel2go",
+            "certificate_hash": "e01197011defebc5370777ed22f80a4ea65f9b12"
+          }
+        },
+        {
+          "client_id": "679447498372-pujq03pg4m9b34idt71csgdhmkv0it9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZhjxVoy09D_hz2HY5n59rQUOzCrwPY74"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679447498372-pujq03pg4m9b34idt71csgdhmkv0it9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

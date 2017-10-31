@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:theme="@style/AppTheme">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="Pickup Address"
+        android:textSize="20dp"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Street"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="City"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="Drop-off Address"
+        android:textSize="20dp"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_receiver_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Reciever Name"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_receiver_phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_receiver_street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Street"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_receiver_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="City"/>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="15dp"
+        android:text="Next"/>
+
+
+</LinearLayout>

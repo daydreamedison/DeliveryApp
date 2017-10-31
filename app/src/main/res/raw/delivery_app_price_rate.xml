@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <Price>
+        <city>yes</city>
+        <pricerate>3</pricerate>
+        <weight>1</weight>
+    </Price>
+    <Price>
+        <city>no</city>
+        <pricerate>6</pricerate>
+        <weight>1</weight>
+    </Price>
+</resources>

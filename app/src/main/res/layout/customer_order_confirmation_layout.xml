@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    android:layout_weight="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:textSize="14dp"
+                    android:text="Your are ordering... "
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="Description: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/delivery_description"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Joanne want to deliver tong shui"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="Send To: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/delivery_send_to_location"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UTP Kampar"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="Send From: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/delivery_send_from_location"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UTP Kampar"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="Price: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/delivery_offered_price"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RM 150.00"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:textSize="18dp"
+                    android:text="Item Detail "
+                    android:padding="3dip" />
+            </TableRow>
+
+            <!-- Parcel  -->
+            <TableRow
+                android:id="@+id/parcel_weight_section"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="weight: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/item_weight"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10kg"/>
+            </TableRow>
+
+
+            <!-- Document  -->
+            <TableRow
+                android:id="@+id/document_weight_section"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="item type: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/item_type"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="document"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:textSize="18dp"
+                    android:text="Sender/Receiver Information "
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="Sender name: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/delivery_sender_name"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Soh Teck Shem"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="Contact Number: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/delivery_sender_contact"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01123179921"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="Receiver name: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/delivery_receiver_name"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Joanne Wong"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_column="1"
+                    android:layout_weight="10"
+                    android:text="Contact Number: "
+                    android:padding="3dip" />
+
+                <TextView
+                    android:id="@+id/delivery_receiver_contact"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01123179921"/>
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_order_accept"
+            android:text="Accept"/>
+
+    </LinearLayout>
+</ScrollView>
