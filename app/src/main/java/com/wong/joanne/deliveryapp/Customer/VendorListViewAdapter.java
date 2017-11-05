@@ -41,7 +41,7 @@ public class VendorListViewAdapter extends ArrayAdapter<VendorPriceRate> {
         vendorNameTextView.setText(vendorList.get(position).name);
         vendorPriceTextView.setText(vendorList.get(position).price);
         if(vendorList.get(position).name.toLowerCase().equals("delivery app"))
-            deliveryWorkingDayTextView.setText("1 to 2 WORKING DAYS");
+            deliveryWorkingDayTextView.setText("1 WORKING DAYS");
         else
             deliveryWorkingDayTextView.setText("3 TO 5 WORKING DAYS");
 

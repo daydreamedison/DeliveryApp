@@ -72,8 +72,7 @@ public class DeliveryListViewAdapter extends ArrayAdapter<DeliveryFirebaseModel>
 
     private String getLocation(ReceiverInformation receiver){
         return receiver.Address + " "
-                + receiver.City + " "
-                + receiver.State;
+                + receiver.City;
     }
 
     public String getTotalPrice(DeliveryItem deliveryItem){

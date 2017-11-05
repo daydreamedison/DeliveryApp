@@ -11,6 +11,5 @@ public class ReceiverInformation implements Serializable {
     public String Name;
     public String Address;
     public String City;
-    public String State;
     public String ContactNumber;
 }

@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import com.wong.joanne.deliveryapp.LoginActivity;
 import com.wong.joanne.deliveryapp.R;
+import com.wong.joanne.deliveryapp.Utility.VendorPriceRate;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -23,8 +25,10 @@ public class OrderSuccessPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_order_success_layout);
 
+        Intent intent = this.getIntent();
+        String OTP = (String)getIntent().getStringExtra("OTP");
         TextView otp = (TextView) findViewById(R.id.txt_OTP);
-        otp.setText(genOTP());
+        otp.setText(OTP);
 
         Button btn_ok = (Button) findViewById(R.id.btn_ok);
         btn_ok.setOnClickListener(new View.OnClickListener() {

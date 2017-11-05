@@ -86,7 +86,6 @@ public class Delivery {
 
     public String getLocation(){
         return this.receiverInformation.Address + " "
-                + this.receiverInformation.City + " "
-                + this.receiverInformation.State;
+                + this.receiverInformation.City;
     }
 }
