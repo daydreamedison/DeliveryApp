@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.wong.joanne.deliveryapp.R;
 import com.wong.joanne.deliveryapp.Utility.Delivery;
+import com.wong.joanne.deliveryapp.Utility.FirebaseDelivery;
 
 /**
  * Created by Sam on 10/21/2017.
@@ -27,20 +28,8 @@ public class DeliveryDetailActivity extends AppCompatActivity{
     TextView receiverContact;
 
     //Item Section
-    TableRow luggageSec;
-    TextView luggage;
-    TableRow luggageWeightSec;
-    TextView luggageWeight;
-
-    TableRow parcelSec;
-    TextView parcel;
-    TableRow parcelWeightSec;
-    TextView parcelWeight;
-
-    TableRow docSection ;
-    TextView doc;
-    TableRow docWeightSection;
-    TextView docWeight;
+    TextView deliveryType;
+    TextView deliveryWeight;
 
     Button btnAccept;
 
@@ -49,7 +38,7 @@ public class DeliveryDetailActivity extends AppCompatActivity{
         setContentView(R.layout.driver_delivery_detail_layout);
 
         Intent intent = this.getIntent();
-        Delivery item = (Delivery) intent.getSerializableExtra("item");
+        FirebaseDelivery item = (FirebaseDelivery) intent.getSerializableExtra("item");
         initView();
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,25 +53,17 @@ public class DeliveryDetailActivity extends AppCompatActivity{
 
     }
 
-    private void getDeliveryDetail(Delivery item){
-        description.setText(item.getDeliveryItem().ItemDescription);
-        sendTo.setText(item.getDeliveryItem().ItemDescription);
-        sendFrom.setText(item.getDeliveryItem().ItemDescription);
-        price.setText(item.getDeliveryItem().ItemDescription);
-        senderName.setText(item.getDeliveryItem().ItemDescription);
-        senderContact.setText(item.getDeliveryItem().ItemDescription);
-        receiverName.setText(item.getDeliveryItem().ItemDescription);
-        receiverContact.setText(item.getDeliveryItem().ItemDescription);
-
-        if(item.getDeliveryItem().ItemType == "Document") {
-            docSection.setVisibility(View.VISIBLE);
-            doc.setText(item.getDeliveryItem().ItemWeight);
-        }
-
-        if(item.getDeliveryItem().ItemType == "Parcel") {
-            parcelSec.setVisibility(View.VISIBLE);
-            parcel.setText(item.getDeliveryItem().ItemWeight);
-        }
+    private void getDeliveryDetail(FirebaseDelivery item){
+        description.setText(item.DeliveryItem.ItemDescription);
+        sendTo.setText(item.Receiver.Address);
+        sendFrom.setText(item.Sender.Address);
+        price.setText(item.DeliveryItem.Price);
+        senderName.setText(item.Sender.Name);
+        senderContact.setText(item.Receiver.ContactNumber);
+        receiverName.setText(item.Receiver.Name);
+        receiverContact.setText(item.Receiver.ContactNumber);
+        deliveryType.setText(item.DeliveryItem.ItemType);
+        deliveryWeight.setText(item.DeliveryItem.ItemWeight);
     }
 
     private void initView(){
@@ -96,20 +77,9 @@ public class DeliveryDetailActivity extends AppCompatActivity{
         receiverContact = findViewById(R.id.delivery_receiver_contact);
 
         //Item Section
-        luggageSec = findViewById(R.id.luggage_quantity_section);
-        luggage = findViewById(R.id.delivery_luggage);
-        luggageWeightSec = findViewById(R.id.luggage_weight_section);
-        luggageWeight = findViewById(R.id.delivery_weight);
+        deliveryType = findViewById(R.id.delivery_type);
+        deliveryWeight = findViewById(R.id.delivery_weight);
 
-        parcelSec = findViewById(R.id.parcel_quantity_section);
-        parcel = findViewById(R.id.delivery_parcel);
-        parcelWeightSec = findViewById(R.id.parcel_weight_section);
-        parcelWeight = findViewById(R.id.parcel_weight);
-
-        docSection = findViewById(R.id.document_quantity_section);
-        doc = findViewById(R.id.document_luggage);
-        docWeightSection = findViewById(R.id.document_weight_section);
-        docWeight = findViewById(R.id.document_weight);
 
         btnAccept = findViewById(R.id.button_accept);
     }

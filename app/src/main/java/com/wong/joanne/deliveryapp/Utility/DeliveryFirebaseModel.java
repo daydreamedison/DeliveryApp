@@ -6,9 +6,9 @@ package com.wong.joanne.deliveryapp.Utility;
 
 public class DeliveryFirebaseModel{
     public ReceiverInformation receiverInformation;
-    public ReceiverInformation senderInformation;
+    public ReceiverInformation Sender;
     public String OTP;
     public String Status;
-    public String DriverKey;
+    public String Driver;
     public DeliveryItem DeliveryItem;
 }

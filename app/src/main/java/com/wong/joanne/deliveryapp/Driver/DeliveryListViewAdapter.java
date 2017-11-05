@@ -13,6 +13,7 @@ import com.wong.joanne.deliveryapp.R;
 import com.wong.joanne.deliveryapp.Utility.Delivery;
 import com.wong.joanne.deliveryapp.Utility.DeliveryFirebaseModel;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItem;
+import com.wong.joanne.deliveryapp.Utility.FirebaseDelivery;
 import com.wong.joanne.deliveryapp.Utility.ReceiverInformation;
 
 import java.util.HashMap;
@@ -22,13 +23,13 @@ import java.util.List;
  * Created by Sam on 10/21/2017.
  */
 
-public class DeliveryListViewAdapter extends ArrayAdapter<DeliveryFirebaseModel> {
+public class DeliveryListViewAdapter extends ArrayAdapter<FirebaseDelivery> {
 
     private final Context context;
-    private List<DeliveryFirebaseModel> deliveryList;
+    private List<FirebaseDelivery> deliveryList;
     private LayoutInflater inflater;
 
-    public DeliveryListViewAdapter(Context context, List<DeliveryFirebaseModel> deliveryList){
+    public DeliveryListViewAdapter(Context context, List<FirebaseDelivery> deliveryList){
         super(context, R.layout.driver_delivery_list_item , deliveryList);
 
         this.context = context;
@@ -54,18 +55,16 @@ public class DeliveryListViewAdapter extends ArrayAdapter<DeliveryFirebaseModel>
             TextView DeliveryOfferedPrice = (TextView) convertView.findViewById(R.id.delivery_offered_price);
             TextView DeliveryLocation = (TextView) convertView.findViewById(R.id.delivery_location);
 
-            DeliveryFirebaseModel delivery = deliveryList.get(position);
+            FirebaseDelivery delivery = deliveryList.get(position);
             DeliveryItem deliveryItem = delivery.DeliveryItem;
-            String description = deliveryItem.ItemDescription;
 
-            DeliveryDescription.setText(deliveryList.get(position).DeliveryItem.ItemDescription);
-            DeliveryOfferedPrice.setText( getTotalPrice(deliveryList.get(position).DeliveryItem));
-            DeliveryLocation.setText( getLocation(deliveryList.get(position).receiverInformation));
+            DeliveryDescription.setText(deliveryItem.ItemDescription);
+            DeliveryOfferedPrice.setText( deliveryItem.Price );
+            DeliveryLocation.setText( getLocation(deliveryList.get(position).Receiver));
         }else
         {
             Toast.makeText(context, "No data", Toast.LENGTH_SHORT).show();
         }
-
 
         return convertView;
     }
@@ -75,8 +74,8 @@ public class DeliveryListViewAdapter extends ArrayAdapter<DeliveryFirebaseModel>
                 + receiver.City;
     }
 
-    public String getTotalPrice(DeliveryItem deliveryItem){
-        return String.valueOf(deliveryItem.Price);
+    public FirebaseDelivery getItem(int position){
+        return deliveryList.get(position);
     }
 
 }

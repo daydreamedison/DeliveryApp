@@ -32,6 +32,11 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
+            android:name=".Driver.DeliveryDetailActivity"
+            android:label="@string/driver_page"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
             android:name=".Customer.CustomerMainActivity"
             android:label="@string/customer_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>

@@ -114,29 +114,24 @@
 
     <!-- Luggage -->
     <TableRow
-        android:id="@+id/luggage_quantity_section"
-        android:layout_margin="5dp"
-        android:visibility="gone">
+        android:layout_margin="5dp">
 
         <TextView
             android:layout_column="1"
             android:layout_weight="10"
-            android:text="Luggage quantity: "
+            android:text="Item Type: "
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/delivery_luggage"
+            android:id="@+id/delivery_type"
             android:layout_column="2"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"/>
+            android:text="Document"/>
     </TableRow>
-
     <TableRow
-        android:id="@+id/luggage_weight_section"
-        android:layout_margin="5dp"
-        android:visibility="gone">
+        android:layout_margin="5dp">
 
         <TextView
             android:layout_column="1"
@@ -146,89 +141,6 @@
 
         <TextView
             android:id="@+id/delivery_weight"
-            android:layout_column="2"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10kg"/>
-    </TableRow>
-
-    <!-- Parcel  -->
-    <TableRow
-        android:id="@+id/parcel_quantity_section"
-        android:layout_margin="5dp"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_column="1"
-            android:layout_weight="10"
-            android:text="Parcel quantity: "
-            android:padding="3dip" />
-
-        <TextView
-            android:id="@+id/delivery_parcel"
-            android:layout_column="2"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"/>
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/parcel_weight_section"
-        android:layout_margin="5dp"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_column="1"
-            android:layout_weight="10"
-            android:text="weight: "
-            android:padding="3dip" />
-
-        <TextView
-            android:id="@+id/parcel_weight"
-            android:layout_column="2"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10kg"/>
-    </TableRow>
-
-
-    <!-- Document  -->
-    <TableRow
-        android:id="@+id/document_quantity_section"
-        android:layout_margin="5dp"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_column="1"
-            android:layout_weight="10"
-            android:text="Document quantity: "
-            android:padding="3dip" />
-
-        <TextView
-            android:id="@+id/document_luggage"
-            android:layout_column="2"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"/>
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/document_weight_section"
-        android:layout_margin="5dp"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_column="1"
-            android:layout_weight="10"
-            android:text="weight: "
-            android:padding="3dip" />
-
-        <TextView
-            android:id="@+id/document_weight"
             android:layout_column="2"
             android:layout_weight="1"
             android:layout_width="wrap_content"

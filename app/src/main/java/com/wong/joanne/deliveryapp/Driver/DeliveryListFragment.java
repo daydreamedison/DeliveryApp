@@ -1,5 +1,6 @@
 package com.wong.joanne.deliveryapp.Driver;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.wong.joanne.deliveryapp.Utility.Delivery;
 import com.wong.joanne.deliveryapp.Utility.DeliveryFirebaseModel;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItem;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItemDetail;
+import com.wong.joanne.deliveryapp.Utility.FirebaseDelivery;
 import com.wong.joanne.deliveryapp.Utility.ReceiverInformation;
 
 import java.util.ArrayList;
@@ -29,8 +31,8 @@ import java.util.ArrayList;
 public class DeliveryListFragment extends Fragment {
 
     private ListView listView;
-    private ArrayList<DeliveryFirebaseModel> firebaseDeliveryList = new ArrayList<>();
-    ArrayList<DeliveryFirebaseModel> deliveryList = new ArrayList<>();
+    private ArrayList<FirebaseDelivery> firebaseDeliveryList = new ArrayList<>();
+    ArrayList<FirebaseDelivery> deliveryList = new ArrayList<>();
     public DeliveryListViewAdapter adapter;
     private DatabaseReference mDatabase;
 
@@ -51,14 +53,24 @@ public class DeliveryListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         listView = (ListView) getActivity().findViewById(R.id.all_delivery_list);
-        //fireDummyData();
         try {
             getPendingDeliveryList();
 
             adapter = new DeliveryListViewAdapter(this.getActivity().getBaseContext(), firebaseDeliveryList);
             listView.setAdapter(adapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    FirebaseDelivery item = adapter.getItem(i);
+                    Intent intent = new Intent(DeliveryListFragment.this.getActivity(),
+                            DeliveryDetailActivity.class);
+                    intent.putExtra("item", item);
+                    startActivity(intent);
+                }
+            });
         }
-        catch(Exception ex){}
+        catch(Exception ex){ System.out.println(ex);}
 
 
     }
@@ -68,15 +80,21 @@ public class DeliveryListFragment extends Fragment {
         deliveryRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                try {
+                    deliveryList.clear();
+                    firebaseDeliveryList.clear();
+                    for(DataSnapshot data: dataSnapshot.getChildren()) {
 
-                deliveryList.clear();
-                firebaseDeliveryList.clear();
-                for(DataSnapshot data: dataSnapshot.getChildren()) {
-                    DeliveryFirebaseModel delivery = data.getValue(DeliveryFirebaseModel.class);
-                    deliveryList.add(delivery);
+                            FirebaseDelivery delivery = data.getValue(FirebaseDelivery.class);
+                            deliveryList.add(delivery);
+
+                    }
+                    firebaseDeliveryList.addAll(deliveryList);
+                    adapter.notifyDataSetChanged();
                 }
-                firebaseDeliveryList.addAll(deliveryList);
-                adapter.notifyDataSetChanged();
+                catch(Exception ex){
+                    System.out.println(ex);
+                }
             }
 
             @Override
@@ -86,42 +104,5 @@ public class DeliveryListFragment extends Fragment {
 
         });
     }
-
-    public void fireDummyData()
-    {
-        /*DeliveryFirebaseModel delivery = new DeliveryFirebaseModel();
-        delivery.Status = "pending";
-        delivery.OTP = "asdsadasdasd";
-
-        DeliveryItem deliveryItem = new DeliveryItem();
-        deliveryItem._itemDescription = "helloo56+oo";
-
-        DeliveryItemDetail item = new DeliveryItemDetail();
-        item.Price = 1;
-        item.Quantity = 1;
-        item.Type = 1;
-
-        deliveryItem._documentItem = item;
-        deliveryItem._parcelItem = item;
-        deliveryItem._lugaggeItem = item;
-
-        delivery.DeliveryItem = deliveryItem;
-
-        ReceiverInformation receiverInformation = new ReceiverInformation();
-        receiverInformation.Address = "sad";
-        receiverInformation.State = "asd";
-        receiverInformation.City = "456das";
-        receiverInformation.ContactNumber = "asd";
-        receiverInformation.Name = "asd";
-
-        delivery.receiverInformation = receiverInformation;
-        delivery.senderInformation = receiverInformation;
-
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference db = mDatabase.child("PendingDeliveryList");
-        String key = mDatabase.child("PendingDeliveryList").push().getKey();
-        db.child(key).setValue(delivery);*/
-    }
-
 
 }
