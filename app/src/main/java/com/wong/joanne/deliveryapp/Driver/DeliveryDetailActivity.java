@@ -92,7 +92,7 @@ public class DeliveryDetailActivity extends AppCompatActivity{
             fbItem.Receiver = item.Receiver;
             fbItem.Sender = item.Sender;
             fbItem.OTP = item.OTP;
-            fbItem.Driver = "me";
+            fbItem.Driver = "Sam Driver";
             fbItem.Status = "Accepted by Driver";
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("PendingDeliveryList");
             databaseReference.child(item.Key).setValue(fbItem);
