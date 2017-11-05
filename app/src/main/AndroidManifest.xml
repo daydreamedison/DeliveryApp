@@ -32,7 +32,17 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
-            android:name=".Driver.DeliveryDetailActivity"
+        android:name=".Driver.DeliveryDetailActivity"
+        android:label="@string/driver_page"
+        android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".Driver.ItemPickUpActivity"
+            android:label="@string/driver_page"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".Driver.DeliveringActivity"
             android:label="@string/driver_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 

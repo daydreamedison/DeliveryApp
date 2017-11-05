@@ -97,12 +97,20 @@ public class DeliveryDetailActivity extends AppCompatActivity{
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("PendingDeliveryList");
             databaseReference.child(item.Key).setValue(fbItem);
 
+            gotoItemPickupPage(fbItem, item.Key);
             Toast.makeText(getBaseContext(), "Success!", Toast.LENGTH_LONG).show();
         }
         catch(Exception ex){
             Toast.makeText(getBaseContext(), "Opps! Something went wrong!", Toast.LENGTH_LONG).show();
             backtoMainPage();
         }
+    }
+
+    private void gotoItemPickupPage(FirebaseDelivery fbItem, String key){
+        Intent intent = new Intent(DeliveryDetailActivity.this, ItemPickUpActivity.class);
+        intent.putExtra("item", fbItem);
+        intent.putExtra("key", key);
+        startActivity(intent);
     }
 
     private void backtoMainPage(){
