@@ -18,6 +18,7 @@ import com.wong.joanne.deliveryapp.Driver.DeliveryListFragment;
 import com.wong.joanne.deliveryapp.Driver.DriverMainActivity;
 import com.wong.joanne.deliveryapp.LoginActivity;
 import com.wong.joanne.deliveryapp.R;
+import com.wong.joanne.deliveryapp.Utility.LoginUser;
 
 /**
  * Created by Sam on 10/20/2017.
@@ -26,6 +27,7 @@ import com.wong.joanne.deliveryapp.R;
 public class CustomerMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
     private FirebaseAuth auth;
+    LoginUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,9 @@ public class CustomerMainActivity extends AppCompatActivity
         setContentView(R.layout.customer_main_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = this.getIntent();
+        currentUser = (LoginUser) intent.getSerializableExtra("user");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.customer_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -66,11 +71,18 @@ public class CustomerMainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.create_delivery_item) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("user", currentUser);
             fragment = new OrderDeliveryFragment();
+            fragment.setArguments(bundle);
         } else if (id == R.id.nav_logout) {
             logout();
-        }else
+        }else {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("user", currentUser);
             fragment = new OrderDeliveryFragment();
+            fragment.setArguments(bundle);
+        }
 
         if(fragment != null){
             FragmentManager fragmentManager = getSupportFragmentManager();

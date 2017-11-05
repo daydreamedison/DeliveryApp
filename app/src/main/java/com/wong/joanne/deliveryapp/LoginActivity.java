@@ -200,6 +200,7 @@ public class LoginActivity extends AppCompatActivity{
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     LoginUser loginUser = snapshot.getValue(LoginUser.class);
                     if(loginUser.email.equals(email)){
+                        currentUser = loginUser;
                         if(loginUser.account_type == 1){
                             loginSuccess();
                             isDriver();
@@ -223,14 +224,18 @@ public class LoginActivity extends AppCompatActivity{
     private void isDriver()
     {
         progressBar.setVisibility(View.GONE);
-        startActivity(new Intent(LoginActivity.this, DriverMainActivity.class));
+        Intent intent = new Intent(LoginActivity.this, DriverMainActivity.class);
+        intent.putExtra("user", currentUser);
+        startActivity(intent);
         finish();
     }
 
     private void isCustomer()
     {
         progressBar.setVisibility(View.GONE);
-        startActivity(new Intent(LoginActivity.this, CustomerMainActivity.class));
+        Intent intent = new Intent(LoginActivity.this, CustomerMainActivity.class);
+        intent.putExtra("user", currentUser);
+        startActivity(intent);
         finish();
     }
 

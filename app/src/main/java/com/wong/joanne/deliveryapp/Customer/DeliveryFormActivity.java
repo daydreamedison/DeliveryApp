@@ -14,6 +14,7 @@ import com.wong.joanne.deliveryapp.CalculatorHelper.VendorPriceCalculator;
 import com.wong.joanne.deliveryapp.R;
 import com.wong.joanne.deliveryapp.Utility.CalculatePriceModel;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItem;
+import com.wong.joanne.deliveryapp.Utility.LoginUser;
 import com.wong.joanne.deliveryapp.Utility.ReceiverInformation;
 import com.wong.joanne.deliveryapp.Utility.VendorPriceRate;
 
@@ -35,6 +36,8 @@ public class DeliveryFormActivity extends AppCompatActivity {
     private EditText receiverStreet;
     private EditText receiverCity;
 
+    LoginUser currentUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +50,7 @@ public class DeliveryFormActivity extends AppCompatActivity {
         final String itemDescription = intent.getStringExtra("itemDescription");
         final String itemWeight = intent.getStringExtra("itemWeight");
         final String itemType = intent.getStringExtra("itemType");
-
-
+        currentUser = (LoginUser) intent.getSerializableExtra("user");
 
         //Sender Information
         street = (EditText) findViewById(R.id.edit_text_street);
@@ -68,8 +70,8 @@ public class DeliveryFormActivity extends AppCompatActivity {
                 if(validate()){
 
                     ReceiverInformation sender = new ReceiverInformation();
-                    sender.Name = "sam";
-                    sender.ContactNumber = "111";
+                    sender.Name = currentUser.name;
+                    sender.ContactNumber = currentUser.contactnumber;
                     sender.City = city.getText().toString();
                     sender.Address = street.getText().toString() + " " + city.getText().toString();
 

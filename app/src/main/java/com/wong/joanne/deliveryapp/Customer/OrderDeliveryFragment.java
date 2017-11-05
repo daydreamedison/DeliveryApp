@@ -15,6 +15,7 @@ import com.wong.joanne.deliveryapp.R;
 import com.wong.joanne.deliveryapp.Utility.Delivery;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItem;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItemDetail;
+import com.wong.joanne.deliveryapp.Utility.LoginUser;
 import com.wong.joanne.deliveryapp.Utility.XML;
 
 /**
@@ -30,10 +31,13 @@ public class OrderDeliveryFragment extends Fragment {
     private Button nextBtn;
     String DeliveryType;
 
+    LoginUser currentUser;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        currentUser = (LoginUser) getArguments().getSerializable("user");
     }
 
     @Override
@@ -73,7 +77,7 @@ public class OrderDeliveryFragment extends Fragment {
                     Item.ItemWeight = itemWeight.getText().toString();
                     Item.ItemType = DeliveryType;
 
-                    gotoDeliveryInformationForm(Item);
+                    gotoDeliveryInformationForm(Item, currentUser);
                 }
 
             }
@@ -81,12 +85,13 @@ public class OrderDeliveryFragment extends Fragment {
         return view;
     }
 
-    private void gotoDeliveryInformationForm(DeliveryItem item)
+    private void gotoDeliveryInformationForm(DeliveryItem item, LoginUser currentUser)
     {
         Intent intent = new Intent(OrderDeliveryFragment.this.getActivity(), DeliveryFormActivity.class);
         intent.putExtra("itemDescription", item.ItemDescription);
         intent.putExtra("itemWeight", item.ItemWeight);
         intent.putExtra("itemType", item.ItemType);
+        intent.putExtra("user", currentUser);
         OrderDeliveryFragment.this.startActivity(intent);
     }
 
