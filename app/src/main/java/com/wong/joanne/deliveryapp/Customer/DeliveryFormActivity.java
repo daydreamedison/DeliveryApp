@@ -10,9 +10,12 @@ import android.widget.EditText;
 
 import com.wong.joanne.deliveryapp.CalculatorHelper.DeliveryAppPrice;
 import com.wong.joanne.deliveryapp.CalculatorHelper.PosLajuPriceRateModel;
+import com.wong.joanne.deliveryapp.CalculatorHelper.VendorPriceCalculator;
 import com.wong.joanne.deliveryapp.R;
+import com.wong.joanne.deliveryapp.Utility.CalculatePriceModel;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItem;
 import com.wong.joanne.deliveryapp.Utility.ReceiverInformation;
+import com.wong.joanne.deliveryapp.Utility.VendorPriceRate;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -80,11 +83,15 @@ public class DeliveryFormActivity extends AppCompatActivity {
                     deliveryItem.ItemDescription = itemDescription;
                     deliveryItem.ItemWeight = itemWeight;
                     deliveryItem.ItemType = itemType;
-                    //calculate own apps delivery price rate
-                    deliveryItem.Price = calculatePrice(city.getText().toString(), receiverCity.getText().toString(), itemWeight);
 
-                    //calculate others vendors
-                    goVendorPriceListAcivity(sender, receiver, deliveryItem);
+                    //calculate own apps delivery price rate
+                    //deliveryItem.Price = calculatePrice(city.getText().toString(), receiverCity.getText().toString(), itemWeight);
+
+                    VendorPriceCalculator calculator = new VendorPriceCalculator(sender.City, receiver.City, itemType, itemWeight);
+                    calculator.setXMLPath(getApplicationContext());
+                    List<VendorPriceRate> priceList = calculator.calculateAllVendor();
+                    //go vendors price activity
+                    goVendorPriceListAcivity(priceList, sender, receiver, deliveryItem);
                 }
 
             }
@@ -95,29 +102,16 @@ public class DeliveryFormActivity extends AppCompatActivity {
         return true;
     }
 
-    private String calculatePrice(String CityFrom, String CityTo, String weight){
-
-        try
-        {
-            InputStream in = getResources().openRawResource(R.raw.delivery_app_price_rate);
-            DeliveryAppPrice itemPrice = new DeliveryAppPrice(CityFrom, CityTo, weight);
-            itemPrice.readXML(in);
-
-            double price = itemPrice.calculate();
-            return Double.toString(price);
-        }
-        catch(Exception ex){
-        }
-
-        return "0.00";
-    }
-
-    private void goVendorPriceListAcivity(ReceiverInformation sender, ReceiverInformation receiver, DeliveryItem deliveryItem)
+    private void goVendorPriceListAcivity(List<VendorPriceRate> priceList,
+                                          ReceiverInformation sender,
+                                          ReceiverInformation receiver,
+                                          DeliveryItem deliveryItem)
     {
         Intent intent = new Intent(DeliveryFormActivity.this, VendorPriceListAcivity.class);
+        intent.putExtra("vendorList", (ArrayList<VendorPriceRate>)priceList);
         intent.putExtra("sender", sender);
         intent.putExtra("receiver", receiver);
-        intent.putExtra("deliveryItem", deliveryItem);
+        intent.putExtra("deliveryitem", deliveryItem);
         DeliveryFormActivity.this.startActivity(intent);
     }
 

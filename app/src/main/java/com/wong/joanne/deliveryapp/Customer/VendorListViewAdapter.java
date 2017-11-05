@@ -35,26 +35,15 @@ public class VendorListViewAdapter extends ArrayAdapter<VendorPriceRate> {
         View rowView = inflater.inflate(R.layout.customer_vendors_list_item, parent, false);
 
         TextView vendorNameTextView = (TextView) rowView.findViewById(R.id.vendor_name);
-        TextView documentPriceRateTextView = (TextView) rowView.findViewById(R.id.document_price_rate);
-        TextView documentTxt = (TextView) rowView.findViewById(R.id.document_price_rate_txt);
-        TextView parcelPriceRateTextView = (TextView) rowView.findViewById(R.id.parcel_price_rate);
-        TextView parcelTxt = (TextView) rowView.findViewById(R.id.parcel_price_rate_txt);
+        TextView vendorPriceTextView = (TextView) rowView.findViewById(R.id.vendor_price_rate);
         TextView deliveryWorkingDayTextView = (TextView) rowView.findViewById(R.id.delivery_working_day);
 
         vendorNameTextView.setText(vendorList.get(position).name);
-        if(vendorList.get(position).parcelPrice == ""){
-            documentPriceRateTextView.setText(vendorList.get(position).documentPrice);
-            parcelPriceRateTextView.setVisibility(View.GONE);
-            parcelTxt.setVisibility(View.GONE);
-        }
+        vendorPriceTextView.setText(vendorList.get(position).price);
+        if(vendorList.get(position).name.toLowerCase().equals("delivery app"))
+            deliveryWorkingDayTextView.setText("1 to 2 WORKING DAYS");
         else
-        {
-            parcelPriceRateTextView.setText(vendorList.get(position).parcelPrice);
-            documentPriceRateTextView.setVisibility(View.GONE);
-            documentTxt.setVisibility(View.GONE);
-        }
-
-        deliveryWorkingDayTextView.setText(vendorList.get(position).workingDaysWithSameCity);
+            deliveryWorkingDayTextView.setText("3 TO 5 WORKING DAYS");
 
         return rowView;
     }

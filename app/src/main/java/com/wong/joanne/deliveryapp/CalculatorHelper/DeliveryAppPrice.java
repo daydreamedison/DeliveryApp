@@ -3,6 +3,9 @@ package com.wong.joanne.deliveryapp.CalculatorHelper;
 import android.util.Xml;
 import android.widget.Toast;
 
+import com.wong.joanne.deliveryapp.Utility.Delivery;
+import com.wong.joanne.deliveryapp.Utility.VendorPriceRate;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -17,42 +20,43 @@ import java.util.List;
 
 public class DeliveryAppPrice {
 
-    private String CityFrom, CityTo, weight;
     private List<DeliveryAppPriceRateModel> priceRateModelList;
 
-    public DeliveryAppPrice( String CityFrom, String CityTo, String weight)
-    {
-        this.CityFrom = CityFrom;
-        this.CityTo = CityTo;
+    private boolean isSameCity;
+    private String itemType;
+    private double weight;
+
+    public DeliveryAppPrice (boolean isSameCity, String itemType, double weight){
+        this.isSameCity = isSameCity;
+        this.itemType = itemType;
         this.weight = weight;
-        this.priceRateModelList = new ArrayList<>();
     }
 
     //calculate after read XML data
-    public double calculate()
+    public VendorPriceRate calculate()
     {
         if(priceRateModelList.size() > 0)
         {
-            boolean isSameCity = false;
-            if(CityTo.equals(CityFrom)){
-                isSameCity = true;
-            }
-            else
-                isSameCity = false;
+            //change these function
+            //assign priceRateModelList price into Vendor Price Rate Model
 
             for(DeliveryAppPriceRateModel price : priceRateModelList)
             {
-                if((price.isSameCity.equals("yes") && isSameCity) || (price.isSameCity.equals("no") && !isSameCity)){
-                    double itemWeight = Double.parseDouble(weight);
+                if((price.isSameCity.equals("yes") && this.isSameCity) || (price.isSameCity.equals("no") && !this.isSameCity)){
+                    double itemWeight = this.weight;
                     double priceRateWeight = Double.parseDouble(price.weight);
                     double priceRate = Double.parseDouble(price.priceRate);
 
-                    return ( itemWeight / priceRateWeight ) * priceRate;
+                    VendorPriceRate model = new VendorPriceRate();
+                    model.name = "Delivery App";
+                    model.price = String.valueOf(( itemWeight / priceRateWeight ) * priceRate);
+
+
+                    return model;
                 }
             }
         }
-
-        return 0.00;
+        return new VendorPriceRate();
     }
 
     //read XML data

@@ -5,10 +5,9 @@ package com.wong.joanne.deliveryapp.CalculatorHelper;
  */
 
 public class PosLajuPriceRateModel {
-    public String startedFixWeight;
-    public String startedFixPriceRate;
-    public String subWeight;
-    public String subPriceRate;
-    public String regionType;
-    public String itemType;
+    public String City;
+    public String PriceRateType;
+    public String Weight;
+    public String PriceRate;
+    public String ItemType;
 }

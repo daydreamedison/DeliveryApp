@@ -15,6 +15,7 @@ import com.wong.joanne.deliveryapp.R;
 import com.wong.joanne.deliveryapp.Utility.Delivery;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItem;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItemDetail;
+import com.wong.joanne.deliveryapp.Utility.XML;
 
 /**
  * Created by Sam on 10/20/2017.
@@ -49,14 +50,14 @@ public class OrderDeliveryFragment extends Fragment {
         documentItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DeliveryType = "Document";
+                DeliveryType = XML.DocumentType;
             }
         });
 
         parcelItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DeliveryType = "Parcel";
+                DeliveryType = XML.ParcelType;
             }
         });
 

@@ -23,17 +23,17 @@ public class ConvertToVendorPriceRateModel {
         this.IsSameCity =IsSameCity;
     }
 
-    public VendorPriceRate convert(String vendor){
-        if(vendor.toLowerCase().equals("poslaju")){
+    public void convert(String vendor){
+/*        if(vendor.toLowerCase().equals("poslaju")){
             //PosLajuPrice();
             return dummyPrice(ItemType);
         }
         else
-            return new VendorPriceRate();
+            return new VendorPriceRate();*/
     }
 
-    private VendorPriceRate dummyPrice(String ItemType){
-        VendorPriceRate x = new VendorPriceRate();
+    private void dummyPrice(String ItemType){
+/*        VendorPriceRate x = new VendorPriceRate();
         x.name = "poslaju";
         if(ItemType.toLowerCase().equals("document")) {
             x.documentPrice = "45.0";
@@ -46,11 +46,11 @@ public class ConvertToVendorPriceRateModel {
         x.workingDaysWithNotSameCity = "4 - 5 working days";
         x.workingDaysWithSameCity = "1 - 3 working days";
 
-        return x;
+        return x;*/
     }
 
-    private List<PosLajuPriceRateModel> dummyData(){
-        PosLajuPriceRateModel documentSameRegion = new PosLajuPriceRateModel();
+    private void dummyData(){
+/*        PosLajuPriceRateModel documentSameRegion = new PosLajuPriceRateModel();
         documentSameRegion.subWeight = "0.25";
         documentSameRegion.subPriceRate = "0.8";
         documentSameRegion.startedFixPriceRate = "4.9";
@@ -88,6 +88,6 @@ public class ConvertToVendorPriceRateModel {
         list.add(parcelSameRegion);
         list.add(parcelNotSameRegion);
 
-        return list;
+        return list;*/
     }
 }
