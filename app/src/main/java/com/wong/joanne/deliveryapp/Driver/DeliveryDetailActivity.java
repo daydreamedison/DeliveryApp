@@ -1,15 +1,28 @@
 package com.wong.joanne.deliveryapp.Driver;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.wong.joanne.deliveryapp.Customer.CustomerMainActivity;
+import com.wong.joanne.deliveryapp.Customer.OrderSuccessPage;
 import com.wong.joanne.deliveryapp.R;
 import com.wong.joanne.deliveryapp.Utility.Delivery;
+import com.wong.joanne.deliveryapp.Utility.DeliveryFirebaseModel;
 import com.wong.joanne.deliveryapp.Utility.FirebaseDelivery;
 
 /**
@@ -32,13 +45,14 @@ public class DeliveryDetailActivity extends AppCompatActivity{
     TextView deliveryWeight;
 
     Button btnAccept;
+    DeliveryFirebaseModel item;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.driver_delivery_detail_layout);
 
         Intent intent = this.getIntent();
-        FirebaseDelivery item = (FirebaseDelivery) intent.getSerializableExtra("item");
+        item = (DeliveryFirebaseModel) intent.getSerializableExtra("item");
         initView();
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,9 +65,52 @@ public class DeliveryDetailActivity extends AppCompatActivity{
 
     private void acceptDelivery(){
 
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener(){
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                switch(i){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        updateFirebase();
+                        break;
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
+        builder.setMessage("Are you sure?")
+                .setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
     }
 
-    private void getDeliveryDetail(FirebaseDelivery item){
+    private void updateFirebase(){
+        try {
+            FirebaseDelivery fbItem = new FirebaseDelivery();
+            fbItem.DeliveryItem = item.DeliveryItem;
+            fbItem.Receiver = item.Receiver;
+            fbItem.Sender = item.Sender;
+            fbItem.OTP = item.OTP;
+            fbItem.Driver = "me";
+            fbItem.Status = "Accepted by Driver";
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("PendingDeliveryList");
+            databaseReference.child(item.Key).setValue(fbItem);
+
+            Toast.makeText(getBaseContext(), "Success!", Toast.LENGTH_LONG).show();
+        }
+        catch(Exception ex){
+            Toast.makeText(getBaseContext(), "Opps! Something went wrong!", Toast.LENGTH_LONG).show();
+            backtoMainPage();
+        }
+    }
+
+    private void backtoMainPage(){
+        startActivity(new Intent(DeliveryDetailActivity.this, DriverMainActivity.class));
+        finish();
+    }
+
+    private void getDeliveryDetail(DeliveryFirebaseModel item){
         description.setText(item.DeliveryItem.ItemDescription);
         sendTo.setText(item.Receiver.Address);
         sendFrom.setText(item.Sender.Address);

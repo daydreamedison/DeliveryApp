@@ -31,8 +31,8 @@ import java.util.ArrayList;
 public class DeliveryListFragment extends Fragment {
 
     private ListView listView;
-    private ArrayList<FirebaseDelivery> firebaseDeliveryList = new ArrayList<>();
-    ArrayList<FirebaseDelivery> deliveryList = new ArrayList<>();
+    private ArrayList<DeliveryFirebaseModel> firebaseDeliveryList = new ArrayList<>();
+    ArrayList<DeliveryFirebaseModel> deliveryList = new ArrayList<>();
     public DeliveryListViewAdapter adapter;
     private DatabaseReference mDatabase;
 
@@ -62,7 +62,7 @@ public class DeliveryListFragment extends Fragment {
 
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    FirebaseDelivery item = adapter.getItem(i);
+                    DeliveryFirebaseModel item = adapter.getItem(i);
                     Intent intent = new Intent(DeliveryListFragment.this.getActivity(),
                             DeliveryDetailActivity.class);
                     intent.putExtra("item", item);
@@ -83,11 +83,18 @@ public class DeliveryListFragment extends Fragment {
                 try {
                     deliveryList.clear();
                     firebaseDeliveryList.clear();
-                    for(DataSnapshot data: dataSnapshot.getChildren()) {
-
-                            FirebaseDelivery delivery = data.getValue(FirebaseDelivery.class);
-                            deliveryList.add(delivery);
-
+                    for(DataSnapshot data: dataSnapshot.getChildren())
+                    {
+                        FirebaseDelivery delivery = data.getValue(FirebaseDelivery.class);
+                        DeliveryFirebaseModel temp = new DeliveryFirebaseModel();
+                        temp.Key = data.getKey();
+                        temp.DeliveryItem = delivery.DeliveryItem;
+                        temp.OTP = delivery.OTP;
+                        temp.Driver = delivery.Driver;
+                        temp.Sender = delivery.Sender;
+                        temp.Receiver = delivery.Receiver;
+                        temp.Status = delivery.Status;
+                        deliveryList.add(temp);
                     }
                     firebaseDeliveryList.addAll(deliveryList);
                     adapter.notifyDataSetChanged();

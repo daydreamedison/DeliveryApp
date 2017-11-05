@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
 import com.wong.joanne.deliveryapp.R;
 import com.wong.joanne.deliveryapp.Utility.Delivery;
 import com.wong.joanne.deliveryapp.Utility.DeliveryFirebaseModel;
@@ -23,13 +24,13 @@ import java.util.List;
  * Created by Sam on 10/21/2017.
  */
 
-public class DeliveryListViewAdapter extends ArrayAdapter<FirebaseDelivery> {
+public class DeliveryListViewAdapter extends ArrayAdapter<DeliveryFirebaseModel> {
 
     private final Context context;
-    private List<FirebaseDelivery> deliveryList;
+    private List<DeliveryFirebaseModel> deliveryList;
     private LayoutInflater inflater;
 
-    public DeliveryListViewAdapter(Context context, List<FirebaseDelivery> deliveryList){
+    public DeliveryListViewAdapter(Context context, List<DeliveryFirebaseModel> deliveryList){
         super(context, R.layout.driver_delivery_list_item , deliveryList);
 
         this.context = context;
@@ -55,7 +56,7 @@ public class DeliveryListViewAdapter extends ArrayAdapter<FirebaseDelivery> {
             TextView DeliveryOfferedPrice = (TextView) convertView.findViewById(R.id.delivery_offered_price);
             TextView DeliveryLocation = (TextView) convertView.findViewById(R.id.delivery_location);
 
-            FirebaseDelivery delivery = deliveryList.get(position);
+            DeliveryFirebaseModel delivery = deliveryList.get(position);
             DeliveryItem deliveryItem = delivery.DeliveryItem;
 
             DeliveryDescription.setText(deliveryItem.ItemDescription);
@@ -74,7 +75,7 @@ public class DeliveryListViewAdapter extends ArrayAdapter<FirebaseDelivery> {
                 + receiver.City;
     }
 
-    public FirebaseDelivery getItem(int position){
+    public DeliveryFirebaseModel getItem(int position){
         return deliveryList.get(position);
     }
 
