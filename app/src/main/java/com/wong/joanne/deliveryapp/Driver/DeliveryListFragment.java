@@ -87,14 +87,16 @@ public class DeliveryListFragment extends Fragment {
                     {
                         FirebaseDelivery delivery = data.getValue(FirebaseDelivery.class);
                         DeliveryFirebaseModel temp = new DeliveryFirebaseModel();
-                        temp.Key = data.getKey();
-                        temp.DeliveryItem = delivery.DeliveryItem;
-                        temp.OTP = delivery.OTP;
-                        temp.Driver = delivery.Driver;
-                        temp.Sender = delivery.Sender;
-                        temp.Receiver = delivery.Receiver;
-                        temp.Status = delivery.Status;
-                        deliveryList.add(temp);
+                        if(delivery.Status.toLowerCase().equals("pending") && delivery.Status != null) {
+                            temp.Key = data.getKey();
+                            temp.DeliveryItem = delivery.DeliveryItem;
+                            temp.OTP = delivery.OTP;
+                            temp.Driver = delivery.Driver;
+                            temp.Sender = delivery.Sender;
+                            temp.Receiver = delivery.Receiver;
+                            temp.Status = delivery.Status;
+                            deliveryList.add(temp);
+                        }
                     }
                     firebaseDeliveryList.addAll(deliveryList);
                     adapter.notifyDataSetChanged();
