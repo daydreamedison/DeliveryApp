@@ -20,8 +20,8 @@
         android:hint="Street"
         android:layout_margin="5dp"/>
 
-    <EditText
-        android:id="@+id/edit_text_city"
+    <Spinner
+        android:id="@+id/spinner_sender_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="City"
@@ -59,8 +59,8 @@
         android:hint="Street"
         android:layout_margin="5dp"/>
 
-    <EditText
-        android:id="@+id/edit_text_receiver_city"
+    <Spinner
+        android:id="@+id/spinner_receiver_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="City"/>

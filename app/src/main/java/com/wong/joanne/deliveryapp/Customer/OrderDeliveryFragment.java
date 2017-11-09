@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -30,6 +32,9 @@ public class OrderDeliveryFragment extends Fragment {
     private Button parcelItemBtn;
     private Button nextBtn;
     String DeliveryType;
+    String itemWeightText;
+
+    Spinner itemQuantitySpinner;
 
     LoginUser currentUser;
 
@@ -45,10 +50,11 @@ public class OrderDeliveryFragment extends Fragment {
             , Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.customer_create_delivery_layout, container, false);
 
+        itemWeightText = "0";
+        itemQuantitySpinner = (Spinner) view.findViewById(R.id.spinner_quantity);
         documentItemBtn = (Button) view.findViewById(R.id.button_document);
         parcelItemBtn = (Button) view.findViewById(R.id.button_parcel);
         orderDescription = (EditText) view.findViewById(R.id.edit_text_order_description);
-        itemWeight = (EditText) view.findViewById(R.id.edit_weight_item);
 
         //onClick functions
         documentItemBtn.setOnClickListener(new View.OnClickListener() {
@@ -74,12 +80,31 @@ public class OrderDeliveryFragment extends Fragment {
                 if(validateForm()){
                     DeliveryItem Item = new DeliveryItem();
                     Item.ItemDescription = orderDescription.getText().toString();
-                    Item.ItemWeight = itemWeight.getText().toString();
+                    Item.ItemWeight = itemWeightText;
                     Item.ItemType = DeliveryType;
 
                     gotoDeliveryInformationForm(Item, currentUser);
                 }
 
+            }
+        });
+
+        //Spinner
+        final ArrayAdapter<CharSequence> itemQuantityAdapter = ArrayAdapter.createFromResource(this.getActivity(),
+                R.array.quantity, R.layout.spinner_item_quantity);
+        itemQuantityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        itemQuantitySpinner.setAdapter(itemQuantityAdapter);
+        itemQuantitySpinner.setSelection(0);
+        itemQuantitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                itemWeightText = itemQuantitySpinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                itemWeightText = "0";
             }
         });
         return view;
