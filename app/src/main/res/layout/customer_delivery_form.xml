@@ -299,6 +299,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginTop="15dp"
+            style="@style/CustomFront.ButtonText"
+            android:background="@color/colorBackground"
             android:text="Next"/>
 
     </TableLayout>
