@@ -16,7 +16,7 @@ import java.util.List;
 
 public class VendorPriceCalculator {
 
-    protected String[] vendorList = new String[] { "deliveryapp", "poslaju", "gdex", "nationwideexpress" };
+    protected String[] vendorList = new String[] { "deliveryapp", "poslaju", "gdex", "nationwideexpress", "citylink" };
     private boolean isSameCity;
     private double weight;
     private String itemType;
@@ -87,6 +87,24 @@ public class VendorPriceCalculator {
                         //functions
                         nationwideExpress.readXML(deliveryAppInput);
                         VendorPriceRate price = nationwideExpress.calculate();
+
+                        //add into vendors list
+                        price.itemType = this.itemType;
+                        allVendorPriceList.add(price);
+                    }
+                    catch(Exception ex) {
+                        System.out.println(ex);
+                    }
+                    break;
+                case "citylink":
+                    try {
+                        //intialise
+                        InputStream deliveryAppInput = context.getResources().openRawResource(R.raw.citylink_price_rate);
+                        CityLink cityLink = new CityLink(isSameCity, itemType, weight);
+
+                        //functions
+                        cityLink.readXML(deliveryAppInput);
+                        VendorPriceRate price = cityLink.calculate();
 
                         //add into vendors list
                         price.itemType = this.itemType;
