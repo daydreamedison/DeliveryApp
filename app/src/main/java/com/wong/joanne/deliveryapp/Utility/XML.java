@@ -17,4 +17,7 @@ public class XML {
 
     public static String DocumentType = "document";
     public static String ParcelType = "parcel";
+
+    public static String MinWeight = "min_weight";
+    public static String MaxWeight = "max_weight";
 }

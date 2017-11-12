@@ -9,10 +9,9 @@
     </Price>
 
     <Price>
-        <pricerate_type>subsequent</pricerate_type>
-        <weight>1</weight>
-        <pricerate>2.5</pricerate>
-        <max_weight>1.5</max_weight>
+        <pricerate_type>second_starting</pricerate_type>
+        <pricerate>10.5</pricerate>
+        <weight>1.5</weight>
         <item>document</item>
     </Price>
 
@@ -24,7 +23,7 @@
         <item>parcel</item>
     </Price>
     <Price>
-        <pricerate_type>starting</pricerate_type>
+        <pricerate_type>second_starting</pricerate_type>
         <weight>10</weight>
         <pricerate>30</pricerate>
         <item>parcel</item>
@@ -36,9 +35,8 @@
         <item>parcel</item>
     </Price>
     <Price>
-        <pricerate_type>subsequent</pricerate_type>
+        <pricerate_type>second_subsequent</pricerate_type>
         <weight>5</weight>
-        <min_weight>15</min_weight>
         <pricerate>13</pricerate>
         <item>parcel</item>
     </Price>

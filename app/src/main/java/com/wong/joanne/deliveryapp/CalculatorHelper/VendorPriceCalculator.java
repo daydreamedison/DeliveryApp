@@ -77,6 +77,23 @@ public class VendorPriceCalculator {
                     }
                     break;
                 case "gdex":
+                    try {
+                        //intialise
+                        InputStream deliveryAppInput = context.getResources().openRawResource(R.raw.gdex_price_rate);
+                        Gdex gdex = new Gdex(isSameCity, itemType, weight);
+
+                        //functions
+                        gdex.readXML(deliveryAppInput);
+                        VendorPriceRate price = gdex.calculate();
+
+                        //add into vendors list
+                        price.itemType = this.itemType;
+                        allVendorPriceList.add(price);
+                    }
+                    catch(Exception ex) {
+                        System.out.println(ex);
+                    }
+
                     break;
                 case "nationwideexpress":
                     try {
