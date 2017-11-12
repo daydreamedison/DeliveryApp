@@ -1,6 +1,7 @@
 package com.wong.joanne.deliveryapp.Customer;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,6 +20,8 @@ import com.wong.joanne.deliveryapp.Utility.DeliveryItem;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItemDetail;
 import com.wong.joanne.deliveryapp.Utility.LoginUser;
 import com.wong.joanne.deliveryapp.Utility.XML;
+
+import static com.wong.joanne.deliveryapp.R.attr.colorPrimary;
 
 /**
  * Created by Sam on 10/20/2017.
@@ -61,6 +64,8 @@ public class OrderDeliveryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 DeliveryType = XML.DocumentType;
+/*                documentItemBtn.setBackgroundColor(Color.BLUE);
+                parcelItemBtn.setBackgroundColor(Color.GRAY);*/
             }
         });
 
@@ -68,6 +73,8 @@ public class OrderDeliveryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 DeliveryType = XML.ParcelType;
+                /*parcelItemBtn.setBackgroundColor(Color.BLUE);
+                documentItemBtn.setBackgroundColor();*/
             }
         });
 

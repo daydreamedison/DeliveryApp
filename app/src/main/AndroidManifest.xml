@@ -33,17 +33,17 @@
 
         <activity
         android:name=".Driver.DeliveryDetailActivity"
-        android:label="@string/driver_page"
+        android:label="Detail"
         android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
             android:name=".Driver.ItemPickUpActivity"
-            android:label="@string/driver_page"
+            android:label="Deliverye"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
             android:name=".Driver.DeliveringActivity"
-            android:label="@string/driver_page"
+            android:label="Delivery"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
@@ -53,22 +53,22 @@
 
         <activity
             android:name=".Customer.DeliveryFormActivity"
-            android:label="@string/customer_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="Address Form"
+            android:theme="@style/AppTheme"></activity>
 
         <activity
             android:name=".Customer.VendorPriceListAcivity"
-            android:label="@string/customer_page"
+            android:label="Price List"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
             android:name=".Customer.OrderConfirmationActivity"
-            android:label="@string/customer_page"
+            android:label="Order"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
             android:name=".Customer.OrderSuccessPage"
-            android:label="@string/customer_page"
+            android:label="Order"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
