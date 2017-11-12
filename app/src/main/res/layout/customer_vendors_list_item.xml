@@ -19,7 +19,7 @@
             android:layout_marginBottom="5dp"
             style="@style/CustomFront.Black"
             android:textSize="12dp"
-            android:text="Vendor Name: "/>
+            android:text="Courier Service: "/>
 
         <TextView
             android:layout_width="wrap_content"

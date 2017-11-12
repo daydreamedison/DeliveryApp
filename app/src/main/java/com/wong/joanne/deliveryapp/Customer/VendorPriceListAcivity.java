@@ -71,7 +71,7 @@ public class VendorPriceListAcivity extends AppCompatActivity{
     private void gotoConfirmationPage(ReceiverInformation receiverInformation, ReceiverInformation senderInformation, DeliveryItem deliveryItem){
 
         for(VendorPriceRate vendorPriceRate: vendorList){
-            if(vendorPriceRate.name.toLowerCase().equals("delivery app")){
+            if(vendorPriceRate.name.toLowerCase().equals("parcel 2 go")){
                 deliveryItem.Price = String.valueOf(vendorPriceRate.price);
             }
         }

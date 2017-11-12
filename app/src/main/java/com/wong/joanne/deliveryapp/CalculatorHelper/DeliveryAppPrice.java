@@ -50,7 +50,7 @@ public class DeliveryAppPrice {
                     DecimalFormat df = new DecimalFormat("#.00");
 
                     VendorPriceRate model = new VendorPriceRate();
-                    model.name = "Delivery App";
+                    model.name = "Parcel 2 Go";
                     double finalPrice = ( itemWeight / priceRateWeight ) * priceRate;
                     model.price = String.valueOf(df.format(finalPrice));
 

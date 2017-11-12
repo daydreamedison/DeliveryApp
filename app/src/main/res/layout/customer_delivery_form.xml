@@ -172,7 +172,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:text="Receiver Name"
+                    android:text="H.P. Number"
                     android:textSize="16dp"
                     style="@style/CustomFront.Black"
                     android:layout_margin="5dp"/>

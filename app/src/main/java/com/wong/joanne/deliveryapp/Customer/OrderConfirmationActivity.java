@@ -3,6 +3,7 @@ package com.wong.joanne.deliveryapp.Customer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableRow;
@@ -51,6 +52,8 @@ public class OrderConfirmationActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_order_confirmation_layout);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         Intent intent = this.getIntent();
         item = (DeliveryItem) intent.getSerializableExtra("item");
@@ -81,7 +84,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         description.setText(item.ItemDescription);
         sendTo.setText(receiver.Address);
         sendFrom.setText(sender.Address);
-        price.setText(item.Price);
+        price.setText("RM " +item.Price);
         senderName.setText(sender.Name);
         senderContact.setText(sender.ContactNumber);
         receiverName.setText(receiver.Name);
