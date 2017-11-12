@@ -64,8 +64,8 @@ public class OrderDeliveryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 DeliveryType = XML.DocumentType;
-/*                documentItemBtn.setBackgroundColor(Color.BLUE);
-                parcelItemBtn.setBackgroundColor(Color.GRAY);*/
+                documentItemBtn.setBackgroundColor(getResources().getColor(R.color.colorBackground));
+                parcelItemBtn.setBackgroundColor(getResources().getColor(R.color.colorBackgroundGray));
             }
         });
 
@@ -73,8 +73,8 @@ public class OrderDeliveryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 DeliveryType = XML.ParcelType;
-                /*parcelItemBtn.setBackgroundColor(Color.BLUE);
-                documentItemBtn.setBackgroundColor();*/
+                parcelItemBtn.setBackgroundColor(getResources().getColor(R.color.colorBackground));
+                documentItemBtn.setBackgroundColor(getResources().getColor(R.color.colorBackgroundGray));
             }
         });
 

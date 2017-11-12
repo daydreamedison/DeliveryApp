@@ -1,79 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:layout_weight="1"
     android:theme="@style/AppTheme">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <include layout="@layout/toolbar" />
 
-
-    <TextView
-        android:layout_width="match_parent"
+    <TableLayout
+        android:id="@+id/place_order_form"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:text="Pickup Address"
-        android:textSize="20dp"
-        android:layout_margin="5dp"/>
+        android:layout_weight="1">
 
-    <EditText
-        android:id="@+id/edit_text_street"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Street"
-        android:layout_margin="5dp"/>
+        <!-- Address Sender -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
 
-    <Spinner
-        android:id="@+id/spinner_sender_city"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="City"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="15dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:text="Drop-off Address"
-        android:textSize="20dp"
-        android:layout_margin="5dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Pickup Address"
+                    android:textSize="16dp"
+                    style="@style/CustomFront.Black"
+                    android:layout_margin="5dp"/>
 
-    <EditText
-        android:id="@+id/edit_text_receiver_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Reciever Name"
-        android:layout_margin="5dp"/>
+            </LinearLayout>
+        </TableRow>
 
-    <EditText
-        android:id="@+id/edit_text_receiver_phonenumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Phone Number"
-        android:layout_margin="5dp"/>
+        <!-- Address edit field-->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
 
-    <EditText
-        android:id="@+id/edit_text_receiver_street"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Street"
-        android:layout_margin="5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-    <Spinner
-        android:id="@+id/spinner_receiver_city"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="City"/>
+                <EditText
+                    android:id="@+id/edit_text_street"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:hint="Street"
+                    style="@style/CustomFront.Title"
+                    android:layout_margin="5dp"/>
 
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="15dp"
-        android:text="Next"/>
+            </LinearLayout>
+        </TableRow>
+
+        <!-- City Sender -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="City"
+                    android:textSize="16dp"
+                    android:layout_gravity="center_vertical"
+                    style="@style/CustomFront.Black"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:id="@+id/spinner_sender_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="City"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"/>
+
+            </LinearLayout>
+        </TableRow>
 
 
-</LinearLayout>
+
+        <!-- Receiver Name -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Receiver Name"
+                    android:textSize="16dp"
+                    style="@style/CustomFront.Black"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+        </TableRow>
+
+        <!-- Name edit text field -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/edit_text_receiver_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:hint="Receiver Name"
+                    style="@style/CustomFront.Title"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+        </TableRow>
+
+        <!-- Receiver Contact Number -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Receiver Name"
+                    android:textSize="16dp"
+                    style="@style/CustomFront.Black"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+        </TableRow>
+
+        <!-- Contact number edit text field -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/edit_text_receiver_phonenumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:hint="Phone Number"
+                    style="@style/CustomFront.Title"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+        </TableRow>
+
+        <!-- Receiver address -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Receiver Address"
+                    android:textSize="16dp"
+                    style="@style/CustomFront.Black"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+        </TableRow>
+
+        <!-- address edit text field -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/edit_text_receiver_street"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:hint="Street Name"
+                    style="@style/CustomFront.Title"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+        </TableRow>
+
+        <!-- City Receiver -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="City"
+                    android:textSize="16dp"
+                    style="@style/CustomFront.Black"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:id="@+id/spinner_receiver_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="City"
+                    style="@style/CustomFront.Black"
+                    android:textSize="16dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"/>
+
+            </LinearLayout>
+        </TableRow>
+
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="15dp"
+            android:text="Next"/>
+
+    </TableLayout>
+
+
+    </LinearLayout>
+</ScrollView>
