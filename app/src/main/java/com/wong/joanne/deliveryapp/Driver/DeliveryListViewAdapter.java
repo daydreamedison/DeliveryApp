@@ -60,7 +60,7 @@ public class DeliveryListViewAdapter extends ArrayAdapter<DeliveryFirebaseModel>
             DeliveryItem deliveryItem = delivery.DeliveryItem;
 
             DeliveryDescription.setText(deliveryItem.ItemDescription);
-            DeliveryOfferedPrice.setText( deliveryItem.Price );
+            DeliveryOfferedPrice.setText("RM " +  deliveryItem.Price );
             DeliveryLocation.setText( getLocation(deliveryList.get(position).Receiver));
         }else
         {

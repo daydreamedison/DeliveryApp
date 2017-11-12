@@ -125,13 +125,13 @@ public class DeliveryDetailActivity extends AppCompatActivity{
         description.setText(item.DeliveryItem.ItemDescription);
         sendTo.setText(item.Receiver.Address);
         sendFrom.setText(item.Sender.Address);
-        price.setText(item.DeliveryItem.Price);
+        price.setText("RM " + item.DeliveryItem.Price);
         senderName.setText(item.Sender.Name);
         senderContact.setText(item.Receiver.ContactNumber);
         receiverName.setText(item.Receiver.Name);
         receiverContact.setText(item.Receiver.ContactNumber);
         deliveryType.setText(item.DeliveryItem.ItemType);
-        deliveryWeight.setText(item.DeliveryItem.ItemWeight);
+        deliveryWeight.setText(item.DeliveryItem.ItemWeight + " KG");
     }
 
     private void initView(){
