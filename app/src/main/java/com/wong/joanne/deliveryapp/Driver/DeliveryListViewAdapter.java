@@ -71,8 +71,7 @@ public class DeliveryListViewAdapter extends ArrayAdapter<DeliveryFirebaseModel>
     }
 
     private String getLocation(ReceiverInformation receiver){
-        return receiver.Address + " "
-                + receiver.City;
+        return receiver.Address;
     }
 
     public DeliveryFirebaseModel getItem(int position){

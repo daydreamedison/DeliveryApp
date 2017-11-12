@@ -25,6 +25,7 @@
             android:id="@+id/receiver_name"
             android:textSize="24dp"
             android:gravity="center"
+            style="@style/CustomFront.Black"
             android:text="Joanne"/>
 
         <TextView
@@ -34,6 +35,7 @@
             android:layout_marginTop="10dp"
             android:textSize="24dp"
             android:gravity="center"
+            style="@style/CustomFront.Title"
             android:text="Taman Equine, Seri Kembangan, Selangor"/>
 
         <TextView
@@ -42,6 +44,7 @@
             android:id="@+id/receiver_contact_number"
             android:layout_marginTop="10dp"
             android:textSize="24dp"
+            style="@style/CustomFront.Title"
             android:gravity="center"
             android:text="011-23177891"/>
 
@@ -56,7 +59,8 @@
 
         <TextView
             android:text="Write the OTP code here :"
-            android:textSize="20dp"
+            style="@style/CustomFront.Black"
+            android:textSize="14dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -74,7 +78,8 @@
         <EditText
             android:id="@+id/edit_OTP"
             android:hint="OTP code"
-            android:textSize="30dp"
+            android:textSize="28dp"
+            style="@style/CustomFront.Title"
             android:inputType="textCapSentences|textMultiLine"
             android:maxLength="100"
             android:maxLines="10"
@@ -117,6 +122,8 @@
             android:id="@+id/btn_item_delivered"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/CustomFront.ButtonText"
+            android:background="@color/colorBackground"
             android:text="Item Delivered" />
     </LinearLayout>
 </LinearLayout>

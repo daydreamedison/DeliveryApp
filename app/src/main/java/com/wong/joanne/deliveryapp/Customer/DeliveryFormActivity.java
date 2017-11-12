@@ -120,7 +120,7 @@ public class DeliveryFormActivity extends AppCompatActivity {
 
                     ReceiverInformation receiver = new ReceiverInformation();
                     receiver.Name = receiverName.getText().toString();
-                    receiver.Address = receiverStreet.getText().toString() + "" + receiverCityText;
+                    receiver.Address = receiverStreet.getText().toString() + " " + receiverCityText;
                     receiver.ContactNumber = receiverPhonenumber.getText().toString();
                     receiver.City = receiverCityText;
 

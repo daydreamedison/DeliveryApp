@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/sender_name"
             android:textSize="24dp"
+            style="@style/CustomFront.Black"
             android:gravity="center"
             android:text="Joanne"/>
 
@@ -33,6 +34,7 @@
             android:id="@+id/sender_address"
             android:layout_marginTop="10dp"
             android:textSize="24dp"
+            style="@style/CustomFront.Title"
             android:gravity="center"
             android:text="Taman Equine, Seri Kembangan, Selangor"/>
 
@@ -42,6 +44,7 @@
             android:id="@+id/sender_contact_number"
             android:layout_marginTop="10dp"
             android:textSize="24dp"
+            style="@style/CustomFront.Title"
             android:gravity="center"
             android:text="011-23177891"/>
 
@@ -83,6 +86,8 @@
             android:id="@+id/btn_item_pickup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            style="@style/CustomFront.ButtonText"
             android:text="Item Pick Up" />
     </LinearLayout>
 </LinearLayout>
