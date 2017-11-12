@@ -11,6 +11,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,11 +47,12 @@ public class DeliveryAppPrice {
                     double itemWeight = this.weight;
                     double priceRateWeight = Double.parseDouble(price.weight);
                     double priceRate = Double.parseDouble(price.priceRate);
+                    DecimalFormat df = new DecimalFormat("#.00");
 
                     VendorPriceRate model = new VendorPriceRate();
                     model.name = "Delivery App";
-                    model.price = String.valueOf(( itemWeight / priceRateWeight ) * priceRate);
-
+                    double finalPrice = ( itemWeight / priceRateWeight ) * priceRate;
+                    model.price = String.valueOf(df.format(finalPrice));
 
                     return model;
                 }

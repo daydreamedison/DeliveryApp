@@ -2,9 +2,6 @@ package com.wong.joanne.deliveryapp.CalculatorHelper;
 
 import android.util.Xml;
 
-import com.wong.joanne.deliveryapp.R;
-import com.wong.joanne.deliveryapp.Utility.CalculatePriceModel;
-import com.wong.joanne.deliveryapp.Utility.Delivery;
 import com.wong.joanne.deliveryapp.Utility.VendorPriceRate;
 import com.wong.joanne.deliveryapp.Utility.XML;
 
@@ -17,30 +14,27 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.XMLConstants;
-
 /**
- * Created by Sam on 10/31/2017.
+ * Created by Sam on 11/12/2017.
  */
 
-public class PosLajuPrice {
+public class NationwideExpress {
     private boolean isSameCity;
     private String itemType;
     private double weight;
-
     private double finalPrice;
 
-    private List<PosLajuPriceRateModel> priceRateModelList;
+    private List<NationwideExpressModel> priceRateModelList;
 
-    public PosLajuPrice(boolean isSameCity, String itemType, double weight){
+    public NationwideExpress(boolean isSameCity, String itemType, double weight){
         this.isSameCity = isSameCity;
         this.itemType = itemType;
         this.weight = weight;
         this.priceRateModelList = new ArrayList<>();
-        finalPrice = 0.0;
+
     }
 
-    public void readXML(InputStream in)throws XmlPullParserException, IOException{
+    public void readXML(InputStream in)throws XmlPullParserException, IOException {
         //read XML
         try{
             XmlPullParser parser = Xml.newPullParser();
@@ -66,9 +60,9 @@ public class PosLajuPrice {
         }
     }
 
-    List<PosLajuPriceRateModel> readPriceModel(XmlPullParser parser) throws XmlPullParserException, IOException{
+    List<NationwideExpressModel> readPriceModel(XmlPullParser parser) throws XmlPullParserException, IOException{
         int eventType = parser.getEventType();
-        List<PosLajuPriceRateModel> priceList = new ArrayList<>();
+        List<NationwideExpressModel> priceList = new ArrayList<>();
 
         while (eventType != XmlPullParser.END_DOCUMENT){
             String name = parser.getName();
@@ -80,7 +74,7 @@ public class PosLajuPrice {
                 else {
                     if(name.toLowerCase().equals(XML.Price)){
                         //continue read nested xml nodes
-                        PosLajuPriceRateModel temp = readPrice(parser);
+                        NationwideExpressModel temp = readPrice(parser);
 
                         //check one of properties is null or not
                         if(temp.ItemType != null){
@@ -104,9 +98,9 @@ public class PosLajuPrice {
         return priceList;
     }
 
-    PosLajuPriceRateModel readPrice(XmlPullParser parser) throws XmlPullParserException, IOException{
+    NationwideExpressModel readPrice(XmlPullParser parser) throws XmlPullParserException, IOException{
         int eventType = parser.getEventType();
-        PosLajuPriceRateModel priceRateModel = new PosLajuPriceRateModel();
+        NationwideExpressModel priceRateModel = new NationwideExpressModel();
 
         while(eventType != XmlPullParser.END_DOCUMENT) {
             String name = parser.getName();
@@ -117,10 +111,7 @@ public class PosLajuPrice {
                 }
                 else{
                     //check the node is equal specify name tag
-                    if(name.toLowerCase().equals((XML.Ciy))){
-                        priceRateModel.City = readValue(parser);
-                    }
-                    else if(name.toLowerCase().equals(XML.PriceRateType)){
+                    if(name.toLowerCase().equals(XML.PriceRateType)){
                         priceRateModel.PriceRateType = readValue(parser);
                     }
                     else if(name.toLowerCase().equals(XML.Weight)){
@@ -156,62 +147,37 @@ public class PosLajuPrice {
     }
 
     public VendorPriceRate calculate(){
-        //calculate
-        String city = "";
         String item = "";
-        double startingWeight = 0.0;
-        double startingPrice = 0.0;
-        double subWeight = 0.0;
-        double subPrice = 0.0;
+        double priceRate = 0.0;
+        double everyWeight = 0.0;
+        VendorPriceRate finalModel = new VendorPriceRate();
 
-        //set item type checking value
-        if(this.itemType.toLowerCase().equals(XML.DocumentType))
+        if(this.itemType.toLowerCase().equals(XML.DocumentType)){
             item = XML.DocumentType;
-        else
-            item = XML.ParcelType;
-
-        //set city checking value
-        if(isSameCity)
-            city = "yes";
-        else
-            city = "no";
-
-        for(PosLajuPriceRateModel model : priceRateModelList){
-            //check whether is same city or not
-            if(model.City.toLowerCase().equals(city)){
-                //check item type
-                if(model.ItemType.toLowerCase().equals(item)) {
-                    if (model.PriceRateType.toLowerCase().equals("starting")) {
-                        startingPrice = Double.parseDouble(model.PriceRate);
-                        startingWeight = Double.parseDouble(model.Weight);
-                    } else if (model.PriceRateType.toLowerCase().equals("subsequent")) {
-                        subPrice = Double.parseDouble(model.PriceRate);
-                        subWeight = Double.parseDouble(model.Weight);
-                    }
-                }
+            for(NationwideExpressModel model : priceRateModelList){
+                priceRate = Double.parseDouble(model.PriceRate);
+                everyWeight = Double.parseDouble(model.Weight);
             }
+
+            if(weight%everyWeight == 0.0)
+            {
+                finalPrice = ( weight / everyWeight ) * priceRate;
+            }
+            else
+            {
+                finalPrice = ((weight / everyWeight) * priceRate ) + priceRate;
+            }
+            DecimalFormat df = new DecimalFormat("#.00");
+
+            finalModel.name = "Nationwide Express";
+            finalModel.price = String.valueOf(df.format(finalPrice));
+        }
+        else {
+            item = XML.ParcelType;
+            finalModel.name = "Nationwide Express";
+            finalModel.price = "0.00";
         }
 
-        //calculate the price
-        if(weight <= startingWeight){
-            finalPrice = startingPrice;
-        }else{
-            double tempWeight = weight/startingWeight;
-            double tempWeight2 = tempWeight/subWeight;
-
-            finalPrice = startingPrice + (tempWeight2 * subPrice);
-        }
-        DecimalFormat df = new DecimalFormat("#.00");
-
-        VendorPriceRate model = new VendorPriceRate();
-        model.name = "Pos Laju";
-        model.price = String.valueOf(df.format(finalPrice));
-
-        return model;
-    }
-
-    //get pos laju price
-    public double getPrice(){
-        return this.finalPrice;
+        return finalModel;
     }
 }

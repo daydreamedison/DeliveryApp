@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DOcument -->
+    <Price>
+        <pricerate_type>subsequent</pricerate_type>
+        <weight>0.5</weight>
+        <pricerate>7</pricerate>
+        <item>document</item>
+    </Price>
+</resources>

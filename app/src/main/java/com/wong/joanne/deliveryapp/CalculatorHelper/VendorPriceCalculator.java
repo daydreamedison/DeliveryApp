@@ -16,7 +16,7 @@ import java.util.List;
 
 public class VendorPriceCalculator {
 
-    protected String[] vendorList = new String[] { "deliveryapp", "poslaju", "gdex" };
+    protected String[] vendorList = new String[] { "deliveryapp", "poslaju", "gdex", "nationwideexpress" };
     private boolean isSameCity;
     private double weight;
     private String itemType;
@@ -77,6 +77,24 @@ public class VendorPriceCalculator {
                     }
                     break;
                 case "gdex":
+                    break;
+                case "nationwideexpress":
+                    try {
+                        //intialise
+                        InputStream deliveryAppInput = context.getResources().openRawResource(R.raw.nationwide_express_price_rate);
+                        NationwideExpress nationwideExpress = new NationwideExpress(isSameCity, itemType, weight);
+
+                        //functions
+                        nationwideExpress.readXML(deliveryAppInput);
+                        VendorPriceRate price = nationwideExpress.calculate();
+
+                        //add into vendors list
+                        price.itemType = this.itemType;
+                        allVendorPriceList.add(price);
+                    }
+                    catch(Exception ex) {
+                        System.out.println(ex);
+                    }
                     break;
             }
         }

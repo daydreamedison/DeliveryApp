@@ -39,11 +39,15 @@ public class VendorListViewAdapter extends ArrayAdapter<VendorPriceRate> {
         TextView deliveryWorkingDayTextView = (TextView) rowView.findViewById(R.id.delivery_working_day);
 
         vendorNameTextView.setText(vendorList.get(position).name);
-        vendorPriceTextView.setText(vendorList.get(position).price);
+        if(vendorList.get(position).price.equals("0.00")){
+            vendorPriceTextView.setText( "Services Unavailable.");
+        }else {
+            vendorPriceTextView.setText("RM " + vendorList.get(position).price);
+        }
         if(vendorList.get(position).name.toLowerCase().equals("delivery app"))
-            deliveryWorkingDayTextView.setText("1 WORKING DAYS");
+            deliveryWorkingDayTextView.setText("1 working day");
         else
-            deliveryWorkingDayTextView.setText("3 TO 5 WORKING DAYS");
+            deliveryWorkingDayTextView.setText("3 to 5 working days");
 
         return rowView;
     }

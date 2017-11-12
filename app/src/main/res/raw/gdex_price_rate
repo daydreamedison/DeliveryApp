@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DOcument -->
+    <Price>
+        <pricerate_type>starting</pricerate_type>
+        <weight>0.5</weight>
+        <pricerate>8</pricerate>
+        <item>document</item>
+    </Price>
+
+    <Price>
+        <pricerate_type>subsequent</pricerate_type>
+        <weight>1</weight>
+        <pricerate>2.5</pricerate>
+        <max_weight>1.5</max_weight>
+        <item>document</item>
+    </Price>
+
+    <!-- Parcel -->
+    <Price>
+        <pricerate_type>starting</pricerate_type>
+        <weight>3</weight>
+        <pricerate>17</pricerate>
+        <item>parcel</item>
+    </Price>
+    <Price>
+        <pricerate_type>starting</pricerate_type>
+        <weight>10</weight>
+        <pricerate>30</pricerate>
+        <item>parcel</item>
+    </Price>
+    <Price>
+        <pricerate_type>subsequent</pricerate_type>
+        <weight>1</weight>
+        <pricerate>3.5</pricerate>
+        <item>parcel</item>
+    </Price>
+    <Price>
+        <pricerate_type>subsequent</pricerate_type>
+        <weight>5</weight>
+        <min_weight>15</min_weight>
+        <pricerate>13</pricerate>
+        <item>parcel</item>
+    </Price>
+</resources>
