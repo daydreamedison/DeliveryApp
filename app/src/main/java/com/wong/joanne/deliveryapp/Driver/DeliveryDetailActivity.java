@@ -25,6 +25,7 @@ import com.wong.joanne.deliveryapp.R;
 import com.wong.joanne.deliveryapp.Utility.Delivery;
 import com.wong.joanne.deliveryapp.Utility.DeliveryFirebaseModel;
 import com.wong.joanne.deliveryapp.Utility.FirebaseDelivery;
+import com.wong.joanne.deliveryapp.Utility.LoginUser;
 
 /**
  * Created by Sam on 10/21/2017.
@@ -48,6 +49,8 @@ public class DeliveryDetailActivity extends AppCompatActivity{
     Button btnAccept;
     DeliveryFirebaseModel item;
 
+    LoginUser currentUser;
+
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.driver_delivery_detail_layout);
@@ -56,6 +59,8 @@ public class DeliveryDetailActivity extends AppCompatActivity{
 
         Intent intent = this.getIntent();
         item = (DeliveryFirebaseModel) intent.getSerializableExtra("item");
+        currentUser = (LoginUser) intent.getSerializableExtra("user");
+
         initView();
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +100,7 @@ public class DeliveryDetailActivity extends AppCompatActivity{
             fbItem.Receiver = item.Receiver;
             fbItem.Sender = item.Sender;
             fbItem.OTP = item.OTP;
-            fbItem.Driver = "Sam Driver";
+            fbItem.Driver = currentUser.name;
             fbItem.Status = "Accepted by Driver";
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("PendingDeliveryList");
             databaseReference.child(item.Key).setValue(fbItem);

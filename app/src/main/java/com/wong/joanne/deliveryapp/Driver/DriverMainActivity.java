@@ -19,11 +19,14 @@ import android.view.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.wong.joanne.deliveryapp.LoginActivity;
 import com.wong.joanne.deliveryapp.R;
+import com.wong.joanne.deliveryapp.Utility.LoginUser;
 
 public class DriverMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth auth;
+    LoginUser currentUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,9 @@ public class DriverMainActivity extends AppCompatActivity
         setContentView(R.layout.driver_main_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = this.getIntent();
+        currentUser = (LoginUser) intent.getSerializableExtra("user");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -64,11 +70,19 @@ public class DriverMainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.nav_pending_delivery) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("user", currentUser);
             fragment = new DeliveryListFragment();
+            fragment.setArguments(bundle);
+
         } else if (id == R.id.nav_logout) {
             logout();
-        }else
+        }else {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("user", currentUser);
             fragment = new DeliveryListFragment();
+            fragment.setArguments(bundle);
+        }
 
         if(fragment != null){
             FragmentManager fragmentManager = getSupportFragmentManager();

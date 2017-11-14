@@ -20,6 +20,7 @@ import com.wong.joanne.deliveryapp.Utility.DeliveryFirebaseModel;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItem;
 import com.wong.joanne.deliveryapp.Utility.DeliveryItemDetail;
 import com.wong.joanne.deliveryapp.Utility.FirebaseDelivery;
+import com.wong.joanne.deliveryapp.Utility.LoginUser;
 import com.wong.joanne.deliveryapp.Utility.ReceiverInformation;
 
 import java.util.ArrayList;
@@ -36,9 +37,14 @@ public class DeliveryListFragment extends Fragment {
     public DeliveryListViewAdapter adapter;
     private DatabaseReference mDatabase;
 
+    LoginUser currentUser;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        currentUser = (LoginUser) getArguments().getSerializable("user");
+
     }
 
     @Override
@@ -66,6 +72,7 @@ public class DeliveryListFragment extends Fragment {
                     Intent intent = new Intent(DeliveryListFragment.this.getActivity(),
                             DeliveryDetailActivity.class);
                     intent.putExtra("item", item);
+                    intent.putExtra("user", currentUser);
                     startActivity(intent);
                 }
             });
