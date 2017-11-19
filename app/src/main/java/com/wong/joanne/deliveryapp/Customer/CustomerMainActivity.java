@@ -82,6 +82,12 @@ public class CustomerMainActivity extends AppCompatActivity
             fragment = new DeliveryHistories();
             fragment.setArguments(bundle);
         }
+        else if(id == R.id.pending_order){
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("user", currentUser);
+            fragment = new PendingDeliveryFragment();
+            fragment.setArguments(bundle);
+        }
         else if (id == R.id.nav_logout) {
             logout();
         }else {

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar" />
+
+    <ImageView
+        android:layout_height="200dp"
+        android:layout_width="fill_parent"
+        android:layout_margin="50dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/driver_image"/>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp">
+
+        <TextView
+            style="@style/CustomFront.Black"
+            android:text="Driver Name: "
+            android:layout_weight="1"
+            android:textSize="14dp"/>
+
+        <TextView
+            style="@style/CustomFront.Black"
+            android:id="@+id/driver_name"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="Joanne bin Pataya"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp">
+
+        <TextView
+            style="@style/CustomFront.Black"
+            android:text="Contact Number: "
+            android:layout_weight="1"
+            android:textSize="14dp"/>
+
+        <TextView
+            style="@style/CustomFront.Black"
+            android:id="@+id/driver_contact_number"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="0377308585"/>
+    </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_margin="10dp">
+
+            <TextView
+                style="@style/CustomFront.Black"
+                android:text="Email: "
+                android:layout_weight="1"
+                android:textSize="14dp"/>
+
+            <TextView
+                style="@style/CustomFront.Black"
+                android:id="@+id/driver_email"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="driver@gmail.com"/>
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>

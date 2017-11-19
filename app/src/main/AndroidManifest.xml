@@ -70,6 +70,16 @@
             android:name=".Customer.OrderSuccessPage"
             android:label="Order"
             android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".Customer.DriverProfile"
+            android:label="Driver Profile"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".Customer.OrderDeliveryDetailActivity"
+            android:label="Order"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

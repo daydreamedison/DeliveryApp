@@ -26,12 +26,12 @@ import java.util.ArrayList;
  * Created by Sam on 11/19/2017.
  */
 
-public class DeliveryHistories extends Fragment {
+public class PendingDeliveryFragment extends Fragment {
 
     private ListView listView;
     private ArrayList<DeliveryFirebaseModel> firebaseDeliveryList = new ArrayList<>();
     ArrayList<DeliveryFirebaseModel> histriesList = new ArrayList<>();
-    public DeliveryHistoriesListViewAdapter adapter;
+    public PendingDeliveryListViewAdapter adapter;
     private DatabaseReference mDatabase;
 
     LoginUser currentUser;
@@ -58,14 +58,14 @@ public class DeliveryHistories extends Fragment {
         try{
             getOrderHistories();
 
-            adapter = new DeliveryHistoriesListViewAdapter(this.getActivity().getBaseContext(),
+            adapter = new PendingDeliveryListViewAdapter(this.getActivity().getBaseContext(),
                     firebaseDeliveryList);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     DeliveryFirebaseModel item = adapter.getItem(i);
-                    Intent intent = new Intent(DeliveryHistories.this.getActivity(),
+                    Intent intent = new Intent(PendingDeliveryFragment.this.getActivity(),
                             OrderDeliveryDetailActivity.class);
                     intent.putExtra("item", item);
                     startActivity(intent);
@@ -88,7 +88,7 @@ public class DeliveryHistories extends Fragment {
                         DeliveryFirebaseModel temp = new DeliveryFirebaseModel();
                         if (delivery.Sender.Name != null) {
                             if (delivery.Sender.Name.toLowerCase().equals(currentUser.name.toLowerCase())) {
-                                if(delivery.Status.toLowerCase().equals("completed"))
+                                if(!delivery.Status.toLowerCase().equals("completed"))
                                 {
                                     temp.Key = data.getKey();
                                     temp.DeliveryItem = delivery.DeliveryItem;

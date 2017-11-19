@@ -77,7 +77,7 @@
                     android:id="@+id/delivery_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/CustomFront.Title"
+                    android:textColor="@color/colorTxtBlack"
                     android:textSize="14dp"
                     android:fontFamily="sans-serif"
                     android:text="Pending"/>

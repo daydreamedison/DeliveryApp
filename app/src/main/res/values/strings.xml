@@ -6,6 +6,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="joanneProfile"></string>
+    <string name="nikkiProfile"></string>
+    <string name="benProfile"></string>
+
     <string-array name="quantity">
         <item>0.5</item>
         <item>1</item>
