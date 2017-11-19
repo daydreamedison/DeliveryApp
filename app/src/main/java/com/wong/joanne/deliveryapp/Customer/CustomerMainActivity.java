@@ -75,7 +75,14 @@ public class CustomerMainActivity extends AppCompatActivity
             bundle.putSerializable("user", currentUser);
             fragment = new OrderDeliveryFragment();
             fragment.setArguments(bundle);
-        } else if (id == R.id.nav_logout) {
+        }
+        else if (id == R.id.order_histories) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("user", currentUser);
+            fragment = new DeliveryHistories();
+            fragment.setArguments(bundle);
+        }
+        else if (id == R.id.nav_logout) {
             logout();
         }else {
             Bundle bundle = new Bundle();

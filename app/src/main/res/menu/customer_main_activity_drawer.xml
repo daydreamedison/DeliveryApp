@@ -6,6 +6,11 @@
             android:id="@+id/create_delivery_item"
             android:icon="@drawable/ic_menu_camera"
             android:title="Create a Delivery Item" />
+
+        <item
+            android:id="@+id/order_histories"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Create a Delivery Item" />
     </group>
 
     <item android:title="Communicate">
