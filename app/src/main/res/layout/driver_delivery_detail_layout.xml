@@ -30,6 +30,7 @@
             style="@style/CustomFront.Title"
             android:layout_weight="1"
             android:textSize="14dp"
+            android:textStyle="bold"
             android:text="Overview "/>
     </TableRow>
 
@@ -42,6 +43,7 @@
         <TextView
             style="@style/CustomFront.Black"
             android:text="Description: "
+            android:textStyle="bold"
             android:layout_weight="1"
             android:textSize="14dp"/>
 
@@ -64,6 +66,7 @@
         <TextView
             android:text="Send To: "
             android:layout_weight="1"
+            android:textStyle="bold"
             android:textSize="14dp"
             style="@style/CustomFront.Black"
             />
@@ -87,6 +90,7 @@
         <TextView
             android:layout_weight="1"
             android:textSize="14dp"
+            android:textStyle="bold"
             style="@style/CustomFront.Black"
             android:text="Send From: "/>
 
@@ -109,6 +113,7 @@
         <TextView
             android:layout_weight="1"
             android:textSize="14dp"
+            android:textStyle="bold"
             style="@style/CustomFront.Black"
             android:text="Price: "/>
 
@@ -132,6 +137,7 @@
             <TextView
                 style="@style/CustomFront.Title"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:textSize="14dp"
                 android:text="Item Detail "/>
         </TableRow>
@@ -147,6 +153,7 @@
             android:layout_weight="1"
             android:textSize="14dp"
             style="@style/CustomFront.Black"
+            android:textStyle="bold"
             android:text="Item Type: " />
 
         <TextView
@@ -167,6 +174,7 @@
         <TextView
             android:layout_weight="1"
             android:textSize="14dp"
+            android:textStyle="bold"
             style="@style/CustomFront.Black"
             android:text="weight: " />
 
@@ -191,6 +199,7 @@
                     style="@style/CustomFront.Title"
                     android:layout_weight="1"
                     android:textSize="14dp"
+                    android:textStyle="bold"
                     android:text="Sender / Receiver  "/>
             </TableRow>
 
@@ -203,6 +212,7 @@
         <TextView
             android:layout_weight="1"
             android:textSize="14dp"
+            android:textStyle="bold"
             style="@style/CustomFront.Black"
             android:text="Sender name: "/>
 
@@ -225,6 +235,7 @@
         <TextView
             android:layout_weight="1"
             android:textSize="14dp"
+            android:textStyle="bold"
             style="@style/CustomFront.Black"
             android:text="Contact Number: " />
 
@@ -248,6 +259,7 @@
     <TextView
             android:layout_weight="1"
             android:textSize="14dp"
+        android:textStyle="bold"
             style="@style/CustomFront.Black"
             android:text="Receiver name: " />
 
@@ -272,6 +284,7 @@
             android:layout_weight="1"
             android:textSize="14dp"
             style="@style/CustomFront.Black"
+        android:textStyle="bold"
             android:text="Contact Number: "/>
 
         <TextView

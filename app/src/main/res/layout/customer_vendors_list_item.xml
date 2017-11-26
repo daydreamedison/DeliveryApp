@@ -19,6 +19,7 @@
             android:layout_marginBottom="5dp"
             style="@style/CustomFront.Black"
             android:textSize="12dp"
+            android:textStyle="bold"
             android:text="Courier Service: "/>
 
         <TextView
@@ -28,7 +29,8 @@
             android:layout_marginBottom="5dp"
             style="@style/CustomFront.Black"
             android:textSize="12dp"
-            android:text="Document Price: "/>
+            android:textStyle="bold"
+            android:text="Price: "/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,6 +38,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             style="@style/CustomFront.Black"
+            android:textStyle="bold"
             android:textSize="12dp"
             android:text="Estimate Deliver Time: "/>
     </LinearLayout>
@@ -78,5 +81,21 @@
             style="@style/CustomFront.Black"
             android:textSize="12dp"
             android:text="3 Working Days"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp">
+
+        <ImageView
+            android:id="@+id/booknow_icon"
+            android:layout_width="70dp"
+            android:src="@mipmap/booknow2"
+            android:layout_height="70dp"
+            android:visibility="gone"/>
     </LinearLayout>
 </LinearLayout>

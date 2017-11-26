@@ -22,5 +22,5 @@
         android:id="@+id/button_continue_placeorder"
         android:background="@color/colorBackground"
         style="@style/CustomFront.ButtonText"
-        android:text="Continue"/>
+        android:text="Book Now"/>
 </LinearLayout>

@@ -38,12 +38,12 @@
 
         <activity
             android:name=".Driver.ItemPickUpActivity"
-            android:label="Delivery"
+            android:label="Pick Up Location"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
             android:name=".Driver.DeliveringActivity"
-            android:label="Delivery"
+            android:label="Receiver Location"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
@@ -68,7 +68,7 @@
 
         <activity
             android:name=".Customer.OrderSuccessPage"
-            android:label="Order"
+            android:label="Order Success"
             android:theme="@style/AppTheme"></activity>
 
         <activity

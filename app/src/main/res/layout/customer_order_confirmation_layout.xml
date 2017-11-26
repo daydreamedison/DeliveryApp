@@ -33,6 +33,7 @@
 
                     <TextView
                         style="@style/CustomFront.Black"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Description: "
@@ -71,6 +72,7 @@
 
                     <TextView
                         style="@style/CustomFront.Black"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Send To: "
@@ -106,6 +108,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:layout_width="wrap_content"
+                        android:textStyle="bold"
                         android:layout_height="wrap_content"
                         style="@style/CustomFront.Black"
                         android:textSize="14dp"
@@ -140,6 +143,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:textStyle="bold"
                         android:layout_height="wrap_content"
                         android:text="Price: "
                         style="@style/CustomFront.Black"
@@ -168,6 +172,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomFront.Title"
                 android:textSize="16dp"
+                android:textStyle="bold"
                 android:text="Item Detail "
                 android:padding="3dip" />
 
@@ -189,7 +194,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="item type: "
+                        android:text="Item weight: "
+                        android:textStyle="bold"
                         style="@style/CustomFront.Black"
                         android:textSize="14dp" />
                 </LinearLayout>
@@ -224,6 +230,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textStyle="bold"
                         android:text="item type: "
                         style="@style/CustomFront.Black"
                         android:textSize="14dp" />
@@ -250,6 +257,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 style="@style/CustomFront.Title"
+                android:textStyle="bold"
                 android:textSize="16dp"
                 android:text="Sender/Receiver Information "
                 android:padding="3dip" />
@@ -269,6 +277,7 @@
                 <TextView
                     android:text="Sender name: "
                     android:layout_width="wrap_content"
+                    android:textStyle="bold"
                     android:layout_height="wrap_content"
                     style="@style/CustomFront.Black"
                     android:textSize="14dp" />
@@ -303,6 +312,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:textStyle="bold"
                     android:layout_height="wrap_content"
                     android:text="Contact Number: "
                     style="@style/CustomFront.Black"
@@ -338,6 +348,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:textStyle="bold"
                     android:layout_height="wrap_content"
                     android:text="Receiver name: "
                     style="@style/CustomFront.Black"
@@ -373,6 +384,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:text="Contact Number: "
                     style="@style/CustomFront.Black"
                     android:textSize="14dp" />

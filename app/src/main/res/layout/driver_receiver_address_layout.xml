@@ -31,16 +31,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/receiver_address"
-            android:layout_marginTop="10dp"
-            android:textSize="24dp"
-            android:gravity="center"
-            style="@style/CustomFront.Title"
-            android:text="Taman Equine, Seri Kembangan, Selangor"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/receiver_contact_number"
             android:layout_marginTop="10dp"
             android:textSize="24dp"
@@ -48,7 +38,15 @@
             android:gravity="center"
             android:text="011-23177891"/>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/receiver_address"
+            android:layout_marginTop="10dp"
+            android:textSize="24dp"
+            android:gravity="center"
+            style="@style/CustomFront.Title"
+            android:text="Taman Equine, Seri Kembangan, Selangor"/>
 
     </LinearLayout>
 

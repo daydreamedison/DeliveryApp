@@ -30,6 +30,7 @@
                     style="@style/CustomFront.Title"
                     android:layout_weight="1"
                     android:textSize="14dp"
+                    android:textStyle="bold"
                     android:text="Overview "/>
             </TableRow>
 
@@ -42,6 +43,7 @@
                 <TextView
                     style="@style/CustomFront.Black"
                     android:text="Description: "
+                    android:textStyle="bold"
                     android:layout_weight="1"
                     android:textSize="14dp"/>
 
@@ -63,6 +65,7 @@
 
                 <TextView
                     android:text="Send To: "
+                    android:textStyle="bold"
                     android:layout_weight="1"
                     android:textSize="14dp"
                     style="@style/CustomFront.Black"
@@ -88,6 +91,7 @@
                     android:layout_weight="1"
                     android:textSize="14dp"
                     style="@style/CustomFront.Black"
+                    android:textStyle="bold"
                     android:text="Send From: "/>
 
                 <TextView
@@ -110,6 +114,7 @@
                     android:layout_weight="1"
                     android:textSize="14dp"
                     style="@style/CustomFront.Black"
+                    android:textStyle="bold"
                     android:text="Price: "/>
 
                 <TextView
@@ -132,6 +137,7 @@
                 <TextView
                     style="@style/CustomFront.Title"
                     android:layout_weight="1"
+                    android:textStyle="bold"
                     android:textSize="14dp"
                     android:text="Item Detail "/>
             </TableRow>
@@ -147,6 +153,7 @@
                     android:layout_weight="1"
                     android:textSize="14dp"
                     style="@style/CustomFront.Black"
+                    android:textStyle="bold"
                     android:text="Item Type: " />
 
                 <TextView
@@ -167,6 +174,7 @@
                 <TextView
                     android:layout_weight="1"
                     android:textSize="14dp"
+                    android:textStyle="bold"
                     style="@style/CustomFront.Black"
                     android:text="weight: " />
 
@@ -189,6 +197,7 @@
 
                 <TextView
                     style="@style/CustomFront.Title"
+                    android:textStyle="bold"
                     android:layout_weight="1"
                     android:textSize="14dp"
                     android:text="Driver Information "/>
@@ -205,6 +214,7 @@
                     android:layout_weight="1"
                     android:textSize="14dp"
                     style="@style/CustomFront.Black"
+                    android:textStyle="bold"
                     android:text="Driver name: "/>
 
                 <TextView

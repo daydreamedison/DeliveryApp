@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wong.joanne.deliveryapp.R;
@@ -37,6 +38,7 @@ public class VendorListViewAdapter extends ArrayAdapter<VendorPriceRate> {
         TextView vendorNameTextView = (TextView) rowView.findViewById(R.id.vendor_name);
         TextView vendorPriceTextView = (TextView) rowView.findViewById(R.id.vendor_price_rate);
         TextView deliveryWorkingDayTextView = (TextView) rowView.findViewById(R.id.delivery_working_day);
+        ImageView bookNowIcon = (ImageView) rowView.findViewById(R.id.booknow_icon);
 
         vendorNameTextView.setText(vendorList.get(position).name);
         if(vendorList.get(position).price.equals("0.00")){
@@ -44,10 +46,12 @@ public class VendorListViewAdapter extends ArrayAdapter<VendorPriceRate> {
         }else {
             vendorPriceTextView.setText("RM " + vendorList.get(position).price);
         }
-        if(vendorList.get(position).name.toLowerCase().equals("delivery app"))
+        if(vendorList.get(position).name.toLowerCase().equals("parcel 2 go")) {
             deliveryWorkingDayTextView.setText("1 working day");
+            bookNowIcon.setVisibility(View.VISIBLE);
+        }
         else
-            deliveryWorkingDayTextView.setText("3 to 5 working days");
+            deliveryWorkingDayTextView.setText("1 to 2 working days");
 
         return rowView;
     }
